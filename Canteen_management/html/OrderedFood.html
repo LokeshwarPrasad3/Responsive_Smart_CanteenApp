@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+    <title>AddingFood</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+
+        body {
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+            font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #contents {
+            margin: auto;
+            width: 100%;
+            border: 2px solid black;
+        }
+
+        #navbar {
+            position: sticky;
+            top: 0px;
+            margin: auto;
+            width: 100%;
+            overflow: hidden;
+            border: 3px solid rgb(120, 120, 236);
+            background-color: rgb(225, 204, 240);
+            z-index: 1;
+        }
+
+        #nav {
+            padding: 9px;
+            /* border: 3px solid rgb(120, 120, 236);
+            background-color: rgb(225, 204, 240); */
+            height: 110px;
+            margin: auto;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            border-radius: 2px;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #header #mainHead h1 {
+            padding-top: 10px;
+            margin-left: 25px;
+            /* width: 300%; */
+            font-weight: bold;
+            font-size: 2.3rem;
+            /* margin: 12px 0px 12px 14px; */
+        }
+
+        #header #logo img {
+            height: 90px;
+        }
+
+
+        /* all menu btn properties is here */
+        nav ul {
+            display: flex;
+            position: absolute;
+            list-style: none;
+            right: 16rem;
+        }
+
+        nav ul li {
+            margin: 0 11px;
+            margin-top: -5px;
+        }
+
+        nav ul li a {
+            font-size: 20px;
+            font-weight: 500;
+            /* color: #fff; */
+            color: red;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            padding: 8px 10px;
+            transition: all 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            color: #1b1b1b;
+            background-color: white;
+        }
+
+        nav ul li #active {
+            color: #1b1b1b;
+            background-color: white;
+        }
+
+        nav ul li #active:active,
+        nav ul li a:active {
+            background-color: rgb(233, 127, 127);
+        }
+
+        nav .menu-btn {
+            color: #f2f2f2;
+            font-size: 25px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #click {
+            display: none;
+        }
+
+        .menu-btn i {
+            position: fixed;
+            right: 2.5rem;
+            top: 3.5rem;
+            /*  right: 53rem;
+            top: 12px;*/
+            color: black;
+        }
+
+
+        @media (max-width: 1282px) {
+            nav .menu-btn {
+                display: block;
+            }
+
+            #click:checked~.menu-btn i::before {
+                content: "\f00d";
+                font-size: 20px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0px;
+                left: 50%;
+                right: 50%;
+
+                transform: translate(-50%, -50%) scale(0.4);
+                text-align: center;
+                visibility: hidden;
+                /* left: -100%; */
+
+                background: #1b1b1b;
+                margin: auto;
+                height: 200px;
+                /* margin : auto; */
+                width: 100%;
+                display: block;
+                text-align: center;
+                transition: all 0.4s ease;
+            }
+
+            #click:checked~ul {
+                left: 0%;
+                visibility: visible;
+                height: 164px;
+                top: 12.4rem;
+                transform: translate(-0%, -50%) scale(1);
+            }
+
+            nav ul li {
+                margin: 40px 0;
+            }
+
+            nav ul li a {
+                font-size: 20px;
+                font-weight: 500;
+                /* color: #fff; */
+                color: red;
+                text-decoration: none;
+                letter-spacing: 1px;
+                border-radius: 5px;
+                padding: 8px 10px;
+                transition: all 0.4s ease;
+            }
+
+            /* nav ul li a:hover,
+            nav ul li #active{
+                color : cyan;
+                background: none;
+            }
+            */
+        }
+
+        #allBtn {
+            margin: 0.5% auto;
+            position: absolute;
+            right: 6%;
+        }
+
+        #allBtn #buttons {
+            margin-top: 4%;
+            display: flex;
+        }
+
+
+        .menuBtn a:hover {
+            background-color: #f2f2f2;
+        }
+
+        .menuBtn a:active {
+            transform: scale(0.999999);
+        }
+
+
+
+
+        #content {
+            margin: auto;
+            width: 50%;
+            margin-top: 20px;
+            border: 2px solid black;
+            background: rgb(238, 234, 233);
+
+        }
+
+        #heading h1 {
+            margin: 30px;
+            margin-left: 100px;
+        }
+
+        .form label {
+            font-size: 1.7rem;
+            margin: 18px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            width: 95%;
+            margin: 23px;
+            margin-bottom: 1.5rem;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-family: 'bree serif';
+            font-size: 1.5rem;
+        }
+
+        input[type="text"]::placeholder {
+            font-size: 1.5rem;
+            font-family: 'bree serif';
+        }
+
+        input[type="number"]::placeholder {
+            font-size: 1.5rem;
+            font-family: 'bree serif';
+        }
+
+        input[type="number"],
+        input[type="file" i] {
+            margin: 18px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        #checking {
+            margin: 20px;
+        }
+
+        #checking input[type="checkbox"],
+        #checking label {
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            width: 100%;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: rgb(231, 196, 196);
+            font-family: 'bree serif';
+            font-size: 1.7rem;
+            color: rebeccapurple;
+
+        }
+
+        #submitBtn {
+            margin: 70px;
+        }
+
+
+        #submitBtn input[type="submit"]:hover {
+            background-color: rgb(231, 169, 169);
+
+        }
+
+        #submitBtn input[type="submit"]:active {
+            background-color: rgb(231, 196, 196);
+            transform: scale(0.99);
+
+        }
+
+
+
+        #Contents {
+            margin: auto;
+            width: 60%;
+        }
+
+        #Contents h1 {
+            margin-top: 1rem;
+        }
+
+
+        /* Main contents */
+        .heads {
+            margin-top: 30px;
+        }
+
+        .heads h2 {
+            background-color: #e54141;
+            color: white;
+            word-spacing: 5px;
+            letter-spacing: 1px;
+            border: 2px solid red;
+            border-radius: 5px;
+            padding: 2px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .row {
+            border: 2px solid black;
+            background-color: #f5ebeb;
+            border-radius: 5px;
+        }
+
+        .dishImg {
+            margin: 5px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+        }
+
+        .dishImg img {
+            width: 180px;
+            margin-top: 2px;
+            margin-left: 4px;
+            height: 140px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dishDetails {
+            display: flex;
+            align-items: center;
+        }
+
+        .dishInfo {
+            margin-left: 30px;
+            word-spacing: 1px;
+            font-size: 1.7rem;
+        }
+
+        .operationBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 6rem;
+
+        }
+
+        .btn button {
+            margin: 15px;
+            padding: 2px 16px;
+            border: none;
+            background: none;
+            /*background-color: rgb(211 193 186); */
+            background-color: rgb(33, 219, 42);
+            border-radius: 10px;
+            transition: all 0.8s ease;
+        }
+
+        .btn button:hover {
+            background-color: rgba(85, 236, 15, 0.678);
+            border-radius: 10px;
+        }
+
+        .btn button:active {
+            transform: scale(0.7);
+        }
+
+        .btn button a {
+            font-family: 'bree serif';
+            text-decoration: none;
+            color: red;
+            font-size: 1.6rem;
+
+        }
+
+        @media only screen and (max-width: 1280px) {
+            /*
+            .operationBtn {
+                position: absolute;
+
+                right: 5rem;
+            } */
+
+            .row {
+                border: 2px solid black;
+                margin-top: 1px;
+                background-color: #f5ebeb;
+                border-radius: 5px;
+                height: 220px;
+            }
+
+            #Contents {
+                margin: auto;
+                width: 99%;
+            }
+
+            #header {
+                margin-left: -20vw;
+            }
+        }
+
+        @media only screen and (max-width : 788px) {
+
+            #header #mainHead h1 {
+                font-size: 2rem;
+            }
+
+            .row {
+                flex-direction: column;
+                height: 224px;
+            }
+
+            .operationBtn {
+                position: relative;
+                left: 1rem;
+                top: -8px;
+            }
+        }
+
+        @media only screen and (max-width: 409px) {
+            #Contents h1 {
+                margin-top: 1rem;
+                margin-left: 15px;
+                font-size: 1.6rem;
+            }
+
+            .heads h2 {
+                font-size: 1.3rem;
+                word-spacing: 1px;
+            }
+            .dishImg img {
+                width: 171px;
+                margin-top: 0px;
+                margin-left: -11px;
+                height: 132px;
+                border: none;
+                border-radius: 5px;
+            
+            }
+            .dishInfo {
+                margin-left: 1px;
+                word-spacing: 1px;
+                font-size: 1.5rem;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Navbar and headings -->
+        <div id="navbar">
+            <nav id="nav">
+                <!-- heading -->
+                <div id="header">
+                    <div id="logo" class="head">
+                        <img src="/images/smartCanteenLogo.png" alt="😊">
+                    </div>
+                    <div id="mainHead" class="head">
+                        <h1>Smart Canteen</h1>
+                    </div>
+                </div>
+                <!-- search box for user things -->
+                <div id="searchBlock">
+                    <div id="allBtn">
+                        <div id="buttons">
+                            <nav>
+                                <input type="checkbox" name="" id="click">
+                                <label for="click" class="menu-btn">
+                                    <i class="fa-sharp fa-solid fa-bars"></i>
+                                </label>
+                                <ul>
+                                    <li><a id="active" href="index.html">Home</a></li>
+                                    <li><a id="" href="studentPanel.html">gotoCart</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main contents -->
+        <div id="Contents">
+            <div class="mainHead">
+                <h1>Older Messages : </h1>
+                <div id="Allmessages">
+                    <div class="messageBox">
+
+
+                        <!--1 all particular dishes show under the row -->
+                        <div class="showing">
+                            <div class="heads">
+                                <h2>Preparing Order Details</h2>
+                            </div>
+                            <div class="row">
+                                <div class="dishDetails">
+                                    <div class="dishImg">
+                                        <img src="/images/dosa.jpg" alt="" srcset="">
+                                    </div>
+                                    <div class="dishInfo">
+                                        <div class="Name">Name :
+                                            <label for=""> Pizza</label>
+                                        </div>
+                                        <div class="Quantity">
+                                            <label for="">Qty : </label>
+                                            <label for="">2</label>
+                                        </div>
+                                        <div class="price">
+                                            <label for="">Price : </label>
+                                            <label for="">120</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="operationBtn">
+                                    <div class="btn">
+                                        <button><a href="#">seeReceipt</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!--2 all particular dishes show under the row -->
+                        <div class="showing">
+                            <div class="heads">
+                                <h2>Preparing Order Details</h2>
+                            </div>
+                            <div class="row">
+                                <div class="dishDetails">
+                                    <div class="dishImg">
+                                        <img src="/images/dosa.jpg" alt="" srcset="">
+                                    </div>
+                                    <div class="dishInfo">
+                                        <div class="Name">Name :
+                                            <label for=""> Pizza</label>
+                                        </div>
+                                        <div class="Quantity">
+                                            <label for="">Qty : </label>
+                                            <label for="">2</label>
+                                        </div>
+                                        <div class="price">
+                                            <label for="">Price : </label>
+                                            <label for="">120</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="operationBtn">
+                                    <div class="btn">
+                                        <button><a href="#">seeReceipt</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!--3 all particular dishes show under the row -->
+                        <div class="showing">
+                            <div class="heads">
+                                <h2>Preparing Order Details</h2>
+                            </div>
+                            <div class="row">
+                                <div class="dishDetails">
+                                    <div class="dishImg">
+                                        <img src="/images/dosa.jpg" alt="" srcset="">
+                                    </div>
+                                    <div class="dishInfo">
+                                        <div class="Name">Name :
+                                            <label for=""> Pizza</label>
+                                        </div>
+                                        <div class="Quantity">
+                                            <label for="">Qty : </label>
+                                            <label for="">2</label>
+                                        </div>
+                                        <div class="price">
+                                            <label for="">Price : </label>
+                                            <label for="">120</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="operationBtn">
+                                    <div class="btn">
+                                        <button><a href="#">seeReceipt</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!--4 all particular dishes show under the row -->
+                        <div class="showing">
+                            <div class="heads">
+                                <h2>Preparing Order Details</h2>
+                            </div>
+                            <div class="row">
+                                <div class="dishDetails">
+                                    <div class="dishImg">
+                                        <img src="/images/dosa.jpg" alt="" srcset="">
+                                    </div>
+                                    <div class="dishInfo">
+                                        <div class="Name">Name :
+                                            <label for=""> Pizza</label>
+                                        </div>
+                                        <div class="Quantity">
+                                            <label for="">Qty : </label>
+                                            <label for="">2</label>
+                                        </div>
+                                        <div class="price">
+                                            <label for="">Price : </label>
+                                            <label for="">120</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="operationBtn">
+                                    <div class="btn">
+                                        <button><a href="#">seeReceipt</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--5 all particular dishes show under the row -->
+                        <div class="showing">
+                            <div class="heads">
+                                <h2>Preparing Order Details</h2>
+                            </div>
+                            <div class="row">
+                                <div class="dishDetails">
+                                    <div class="dishImg">
+                                        <img src="/images/dosa.jpg" alt="" srcset="">
+                                    </div>
+                                    <div class="dishInfo">
+                                        <div class="Name">Name :
+                                            <label for=""> Pizza</label>
+                                        </div>
+                                        <div class="Quantity">
+                                            <label for="">Qty : </label>
+                                            <label for="">2</label>
+                                        </div>
+                                        <div class="price">
+                                            <label for="">Price : </label>
+                                            <label for="">120</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="operationBtn">
+                                    <div class="btn">
+                                        <button><a href="#">seeReceipt</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+    <title>AddingFood</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+
+        body {
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+            font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #contents {
+            margin: auto;
+            width: 100%;
+            border: 2px solid black;
+        }
+
+        #navbar {
+            position: sticky;
+            top: 0px;
+            margin: auto;
+            width: 100%;
+            overflow: hidden;
+            border: 3px solid rgb(120, 120, 236);
+            background-color: rgb(225, 204, 240);
+        }
+
+        #nav {
+            padding: 9px;
+            /* border: 3px solid rgb(120, 120, 236);
+            background-color: rgb(225, 204, 240); */
+            height: 110px;
+            margin: auto;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            border-radius: 2px;
+        }
+
+        #header {
+            margin-left: -105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #header #mainHead h1 {
+            padding-top: 10px;
+            margin-left: 25px;
+            /* width: 300%; */
+            font-weight: bold;
+            font-size: 2.3rem;
+            /* margin: 12px 0px 12px 14px; */
+        }
+
+        #header #logo img {
+            height: 90px;
+        }
+
+        #searchBlock {
+            margin: auto 7%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #searchBlock #searchLogo img {
+            height: 15px;
+        }
+
+        #searchBlock input[type="text"] {
+            font-size: 1.3rem;
+            /* margin: 16px; */
+            margin-top: 15px;
+            text-align: left;
+            margin-left: -4rem;
+            border: 2px solid rebeccapurple;
+            border-radius: 25px 0 0 25px;
+            text-align: left;
+            width: 515px;
+            height: 50px;
+            padding-left: 22px;
+
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+            font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        
+
+        #searchBlock #searchBtn {
+            font-size: 1.2rem;
+            /* padding: 13px 0px ; */
+            height: 40px;
+            border-radius: 0 25px 25px 0;
+            font-family: "Bree serif", Verdana, Geneva, Tahoma, sans-serif;
+
+            position: relative;
+            border-radius: 0 25px 25px 0;
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        #searchBtn:hover {
+            transform: scale(1.06);
+        }
+
+        #searchBtn:active {
+            transform: scale(0.99999);
+        }
+
+        #cartImage img {
+            cursor: pointer;
+            height: 43px;
+            position: absolute;
+            right: 2.9rem;
+            top: 2.7rem;
+            padding: 6px 17px;
+        }
+
+        #cartImage #logo {
+            transition: all 0.4s ease;
+        }
+
+        #cartImage #logo:hover {
+            color: #1b1b1b;
+            background-color: white;
+            border-radius: 3px;
+        }
+
+        #cartImage #logo:active {
+            background-color: rgb(233, 127, 127);
+        }
+
+
+        /* all menu btn properties is here */
+        nav ul {
+            display: flex;
+            position: absolute;
+            list-style: none;
+            right: 11rem;
+        }
+
+        nav ul li {
+            margin: 0 11px;
+            margin-top: -5px;
+        }
+
+        nav ul li a {
+            font-size: 20px;
+            font-weight: 500;
+            /* color: #fff; */
+            color: red;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            padding: 8px 10px;
+            transition: all 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            color: #1b1b1b;
+            background-color: white;
+        }
+
+        nav ul li #active {
+            color: #1b1b1b;
+            background-color: white;
+        }
+
+        nav ul li #active:active,
+        nav ul li a:active {
+            background-color: rgb(233, 127, 127);
+        }
+
+        nav .menu-btn {
+            color: #f2f2f2;
+            font-size: 25px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #click {
+            display: none;
+        }
+
+        .menu-btn i {
+            position: fixed;
+            right: 2.5rem;
+            top: 3.5rem;
+            /*  right: 53rem;
+            top: 12px;*/
+            color: black;
+        }
+
+        @media (max-width: 1282px) {
+
+            #content {
+                margin: auto;
+                width: 97%;
+                margin-top: 20px;
+                border: 2px solid black;
+                background: rgb(238, 234, 233);
+            }
+
+            nav .menu-btn {
+                display: block;
+            }
+
+            #click:checked~.menu-btn i::before {
+                content: "\f00d";
+                font-size: 20px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0px;
+                left: 50%;
+                right: 50%;
+
+                transform: translate(-50%, -50%) scale(0.4);
+                text-align: center;
+                visibility: hidden;
+                /* left: -100%; */
+
+                background: #1b1b1b;
+                margin: auto;
+                height: 200px;
+                /* margin : auto; */
+                width: 100%;
+                display: block;
+                text-align: center;
+                transition: all 0.4s ease;
+            }
+
+            #click:checked~ul {
+                left: 0%;
+                visibility: visible;
+                height: 400px;
+                top: 19.5rem;
+                transform: translate(-0%, -50%) scale(1);
+            }
+
+            nav ul li {
+                margin: 40px 0;
+            }
+
+            nav ul li a {
+                /* border : 2px solid red;
+              display : block; */
+                font-size: 20px;
+            }
+
+            /* nav ul li a:hover,
+            nav ul li #active{
+                color : cyan;
+                background: none;
+            }
+            */
+        }
+
+        /* when having  583 pixels */
+
+        @media (max-width: 583px) {
+
+
+
+            #header {
+                margin-left: -81px;
+            }
+
+            #header #mainHead h1 {
+                margin-left: 14px;
+                font-size: 2rem;
+            }
+
+            #header #logo img {
+                height: 80px;
+            }
+
+            #heading h1 {
+                margin-bottom: 10px;
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            #DishName,
+            #DishPrice,
+            #FoodName {
+                font-size: 1.3rem;
+            }
+
+            #addPrice,
+            #addName {
+                padding: 5px;
+                width: 90%;
+                margin: 5px 2px 10px 17px;
+
+                border: 2px solid black;
+                border-radius: 5px;
+                font-family: 'bree serif';
+                font-size: 1.3rem;
+            }
+
+            input[type="text"]::placeholder {
+                font-size: 1rem;
+                font-family: 'bree serif';
+            }
+
+            input[type="number"]::placeholder {
+                font-size: 1rem;
+                font-family: 'bree serif';
+            }
+
+            #addImg {
+                margin: 9px 0px -4px 17px;
+                font-size: 18px;
+                cursor: pointer;
+            }
+
+            #btnSubmit {
+                padding: 0px;
+                margin-top: -60px;
+                font-size: 1.3rem;
+            }
+        }
+
+        #allBtn {
+            margin: 0.5% auto;
+            position: absolute;
+            right: 6%;
+        }
+
+        #allBtn #buttons {
+            margin-top: 4%;
+            display: flex;
+        }
+
+        #allBtn #buttons #bar {
+            display: flex;
+        }
+
+        #allBtn #buttons #bar #more {
+            cursor: pointer;
+            /* margin: 0px 10px 0px 10px; */
+            /* background-color: rgb(220, 209, 209); */
+            font-size: 1.4rem;
+            font-weight: bold;
+            /* padding: 5px 15px; */
+            border: none;
+            background: none;
+            /* border: 2px solid red; */
+            /* border-radius: 3px; */
+        }
+
+        #allBtn #buttons #bar #login {
+            cursor: pointer;
+            /* margin: 0px 10px 0px 20px; */
+            /* background-color: rgb(220, 209, 209); */
+            font-size: 1.4rem;
+            font-weight: bold;
+            /* padding: 2px 15px; */
+            border: none;
+            background: none;
+            /* border: 2px solid red; */
+            /* border-radius: 3px; */
+        }
+
+        .menuBtn a:hover {
+            background-color: #f2f2f2;
+        }
+
+        .menuBtn a:active {
+            transform: scale(0.999999);
+        }
+
+
+
+
+
+
+
+
+
+        #content {
+            margin: auto;
+            width: 97%;
+            margin-top: 20px;
+            border: 2px solid black;
+            background: rgb(238, 234, 233);
+
+        }
+
+        #heading h1 {
+            text-align: center;
+        }
+
+        .form label {
+            font-size: 1.7rem;
+            margin: 18px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            width: 95%;
+            margin: 23px;
+            margin-bottom: 1.5rem;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-family: 'bree serif';
+            font-size: 1.5rem;
+        }
+
+        input[type="text"]::placeholder {
+            font-size: 1.5rem;
+            font-family: 'bree serif';
+        }
+
+        input[type="number"]::placeholder {
+            font-size: 1.5rem;
+            font-family: 'bree serif';
+        }
+
+        input[type="number"],
+        input[type="file" i] {
+            margin: 18px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        #checking {
+            margin: 20px;
+        }
+
+        #checking input[type="checkbox"],
+        #checking label {
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            width: 100%;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: rgb(231, 196, 196);
+            font-family: 'bree serif';
+            font-size: 1.7rem;
+            color: rebeccapurple;
+
+        }
+
+        #submitBtn {
+            margin: 70px;
+        }
+
+
+        #submitBtn input[type="submit"]:hover {
+            background-color: rgb(231, 169, 169);
+
+        }
+
+        #submitBtn input[type="submit"]:active {
+            background-color: rgb(231, 196, 196);
+            transform: scale(0.99);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="navbar">
+            <nav id="nav">
+                <!-- heading -->
+                <div id="header">
+                    <div id="logo" class="head">
+                        <img src="/images/smartCanteenLogo.png" alt="😊">
+                    </div>
+                    <div id="mainHead" class="head">
+                        <h1>Smart Canteen</h1>
+                    </div>
+                </div>
+                <!-- search box for user things -->
+                <div id="searchBlock">
+                    <div id="allBtn">
+                        <div id="buttons">
+                            <nav>
+                                <input type="checkbox" name="" id="click">
+                                <label for="click" class="menu-btn">
+                                    <i class="fa-sharp fa-solid fa-bars"></i>
+                                </label>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a id="active" href="interfaceEmployee.html">EmployeePanel</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- contents -->
+        <div id="content">
+            <div id="heading">
+                <h1 id="mainHeading">Pleasse Add New Food Item : </h1>
+            </div>
+            <form action="" class="form">
+                <div id="dishName" class="inptType">
+                    <div>
+
+                        <label for="" id="DishName">Enter Dish Name :</label>
+                    </div>
+                    <input type="text" name="" id="addName" placeholder="Dahi Samosa" required>
+                </div>
+                <div id="Price" class="inptType">
+                    <div>
+
+                        <label for="" id="DishPrice">Enter Price :</label>
+                    </div>
+                    <input type="number" name="" id="addPrice" placeholder="20" required>
+                </div>
+                <div id="imgUpload" class="inptType">
+                    <div>
+
+                        <label for="" id="FoodName">Enter Food Image :</label>
+                    </div>
+                    <input type="file" name="" id="addImg" required>
+                </div>
+                <!-- <div id="checking" class="inptType">
+                    <input type="checkbox" name="" id="addCheck" required>
+                    <label for="addCheck" id="confirm">Confirm! I checked</label>
+                </div> -->
+                <div id="submitBtn">
+                    <input type="submit" id="btnSubmit" value="Add This Food">
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

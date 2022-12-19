@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Canteen Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- for desktop responsiveNess -->
+    <link rel="stylesheet" media="screen and (max-width : 1786px ) (min-width :1282px) " href="/css/desk7.css">
+    <link rel="stylesheet" media="screen and (max-width : 1492px  )" href="/css/desk8.css">
+    <link rel="stylesheet" media="screen and (max-width : 966px  )" href="/css/desk6.css">
+    <link rel="stylesheet" media="screen and (max-width : 856px)" href="/css/desk9.css">
+    <link rel="stylesheet" media="screen and (max-width : 685px)" href="/css/desk10.css">
+
+    <!-- for mobile phone responsiveNess -->
+    <link rel="stylesheet" media="screen and (max-width : 601px)" href="/css/phone6.css">
+    <link rel="stylesheet" media="screen and (max-width : 584px)" href="/css/phone2.css">
+    <link rel="stylesheet" media="screen and (max-width : 486px)" href="/css/phone3.css">
+    <link rel="stylesheet" media="screen and (max-width : 450px)" href="/css/phone9.css">
+    <link rel="stylesheet" media="screen and (max-width : 409px)" href="/css/phone10.css">
+    <link rel="stylesheet" media="screen and (max-width : 385px)" href="/css/phone4.css">
+    <link rel="stylesheet" media="screen and (max-width : 375px)" href="/css/phone12.css">
+    <link rel="stylesheet" media="screen and (max-width : 359px)" href="/css/phone7.css">
+
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- Container contains all the body pages -->
+    <div id="container" class="blur">
+        <div id="contents">
+
+            <!-- navbar contains all navbar -->
+            <div id="navbar">
+                <nav id="nav">
+                    <!-- heading -->
+                    <div id="header">
+                        <div id="logo" class="head">
+                            <img src="/images/smartCanteenLogo.png" alt="😊">
+                        </div>
+                        <div id="mainHead" class="head">
+                            <h1>Smart Canteen</h1>
+                        </div>
+                    </div>
+                    <!-- search box for user things -->
+                    <div id="searchBlock">
+                        <div id="search" class="searching">
+                            <input type="text" name="search" id="searchTxt" placeholder="search your favorite dish">
+                            <input id="searchBtn" type="submit" value="Search">
+                        </div>
+                        <div id="cartImage">
+                            <button><a href="studentPanel.html"> <img id="logo" src="/images/cart2.png"
+                                        alt="yourCart"></a></button>
+                        </div>
+                        <!-- Bottuns for menu -->
+                        <div id="allBtn">
+                            <div id="buttons">
+                                <nav>
+                                    <input type="checkbox" name="" id="click">
+                                    <label for="click" class="menu-btn">
+                                        <i class="fa-sharp fa-solid fa-bars"></i>
+                                    </label>
+                                    <ul>
+                                        <li><a id="active" href="index.html">Home</a></li>
+                                        <!-- <li><a href="#">Services</a></li> -->
+                                        <!-- <button type="submit" onclick="openPopup()">LoginPanel</button> -->
+                                        <li><a href="#" onclick="openPopup()">LoginPanel</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <!-- <li><a href="#">FeedBack</a></li> -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+
+            <!-- Main content after nav starting from here -->
+            <div id="mainContent">
+                <!-- all food showing circle form -->
+                <div id="showFood">
+                    <h2 class="center">Eat! What makes you Happy 😊</h2>
+                    <!-- here we show much food s images and names -->
+                    <div id="allFoods">
+                        <!-- food - 1 -->
+                        <div id="food-1" class="food">
+                            <img src="/images/logos/dosa_logo.jpg" alt="" srcset="">
+                            <div class="label">
+                                <label for=""> Dosa </label>
+                            </div>
+                        </div>
+                        <div id="food-2" class="food">
+                            <img src="/images/logos/burger_logo.webp" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Burger</label>
+                            </div>
+                        </div>
+                        <div id="food-3" class="food">
+                            <img src="/images/logos/Pizza_logo.jpeg" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Pizza</label>
+                            </div>
+                        </div>
+                        <div id="food-5" class="food">
+                            <img src="/images/logos/tea_logo.jpeg" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Tea</label>
+                            </div>
+                        </div>
+                        <div id="food-6" class="food">
+                            <img src="/images/logos/samosa_logo.jpeg" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Samosa</label>
+                            </div>
+                        </div>
+                        <div id="food-7" class="food">
+                            <img src="/images/logos/noodles_logo.webp" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Noodles</label>
+                            </div>
+                        </div>
+                        <div id="food-8" class="food">
+                            <img src="/images/logos/juice_logo.jpeg" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Juice</label>
+                            </div>
+                        </div>
+                        <div id="food-9" class="food">
+                            <img src="/images/logos/pasta_logo.jpeg" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Pasta</label>
+                            </div>
+                        </div>
+                        <div id="food-4" class="food">
+                            <img src="/images/logos/Biryani_logo.webp" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Biryani</label>
+                            </div>
+                        </div>
+                        <div id="food-10" class="food">
+                            <img src="/images/logos/Sandwich.jpeg" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Sandwich</label>
+                            </div>
+                        </div>
+                        <div id="food-1" class="food">
+                            <img src="/images/logos/dosa_logo.jpg" alt="" srcset="">
+                            <div class="label">
+                                <label for=""> Dosa </label>
+                            </div>
+                        </div>
+                        <div id="food-2" class="food">
+                            <img src="/images/logos/burger_logo.webp" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Burger</label>
+                            </div>
+                        </div>
+                        <div id="food-3" class="food">
+                            <img src="/images/logos/Pizza_logo.jpeg" alt="" srcset="">
+                            <div class="label">
+                                <label for="">Pizza</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div id="specialFood">
+                    <!-- here mentioned all special food by animation -->
+                    <!-- <h1 id="Special-Heading">* TODAY'S &nbsp; SPECIAL &nbsp; FOOD *</h1> -->
+                    <h1 id="Special-Heading">* Today's Special Food *</h1>
+                    <!-- contents -->
+                    <div id="slider">
+                        <!-- this is slider animation -->
+                        <figure>
+                            <img class="img" src="/image2/zomato.jpg">
+                            <img class="img" src="/image2/amazon.jpg">'/css/
+                            <img class="img" src="/image2/newsswallah.jpg">
+                            <img class="img" src="/image2/flipkart2.jpg">
+                            <img class="img" src="/image2/youtube.jpg">
+                        </figure>
+                    </div>
+                </div>
+                <hr>
+                <div id="allDish">
+                    <!-- all dishes with image show below Here -->
+                    <h1 id="Popular-Dish">Our Canteen Other Popular Dishes</h1>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/dosaMasala.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Masala Dosa :&nbsp;</label>
+                            <label for=" : " id="price">: ₹25</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/samosa3.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Samosa :&nbsp;</label>
+                            <label for=" : " id="price">: ₹20</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-2">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/juice.jpeg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Juice :&nbsp;</label>
+                            <label for=" : " id="price">: ₹10</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-3">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/veggie.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Veggie :&nbsp;</label>
+                            <label for=" : " id="price">: ₹80</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-4">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/aaloogunda2.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Aaloo Gunda :&nbsp;</label>
+                            <label for=" : " id="price">: ₹20</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-11">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/dahiSamosa_logo.jpeg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Dahi Samosa :&nbsp;</label>
+                            <label for=" : " id="price">: ₹30</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-5">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/tea.jpeg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Tea :&nbsp;</label>
+                            <label for=" : " id="price">: ₹10</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-6">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/samosa3.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Samosa :&nbsp;</label>
+                            <label for=" : " id="price">: ₹20</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-7">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/dosa.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Dosa :&nbsp;</label>
+                            <label for=" : " id="price">: ₹25</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-8">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/dahiSamosa_logo.jpeg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Dahi Samosa :&nbsp;</label>
+                            <label for=" : " id="price">: ₹30</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-9">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/Pizza.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Pizza :&nbsp;</label>
+                            <label for=" : " id="price">: ₹110</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-10">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/tea.jpeg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Tea :&nbsp;</label>
+                            <label for=" : " id="price">: ₹10</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-12">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/samosa3.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Samosa :&nbsp;</label>
+                            <label for=" : " id="price">: ₹30</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-13">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/aaloogunda2.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Aaloo Gunda :&nbsp;</label>
+                            <label for=" : " id="price">: ₹20</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-11">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/juice.jpeg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Juice :&nbsp;</label>
+                            <label for=" : " id="price">: ₹10</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-13">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="dishes">
+                        <div id="logo">
+                            <img src="/images/veggie.jpg" alt="" srcset="">
+                        </div>
+                        <div id="dishName" class="dname">
+                            <label for="" id="name">Veggie :&nbsp;</label>
+                            <label for=" : " id="price">: ₹30</label>
+                        </div>
+                        <div id="addingCart">
+                            <div id="minus"><button class="Btn" id="minusBtn">-</button></div>
+                            <div id="number">1</div>
+                            <div id="add"><button class="Btn" id="addBtn">+</button></div>
+                            <div id="addCart">
+                                <button class="Btn addCartBtn" id="addCartBtn-14">AddCart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <footer id="footer">
+            <h4>Copyright&nbsp; &copy;&nbsp; www.WebsiteForCanteen.com &nbsp;All right Reserved</h4>
+        </footer>
+    </div>
+
+
+    <!-- adding for popup -->
+
+    <div id="allBox" class="allBox">
+        <h2>Employee Login : </h2>
+        <img class="images" src="../images/images.png" alt="" srcset="">
+        <hr>
+        <form action="" id="LoginForm">
+            <div id="emailId">
+                <label for="">Email Id : </label><br>
+                <input type="email" name="" id="addEmail" placeholder="tiger@gmail.com">
+            </div>
+            <div id="password">
+                <label for="">Password : </label><br>
+                <input type="password" name="" id="addPass" placeholder="*****">
+            </div>
+            <hr>
+            <div id="Bottons">
+                <button id="CloseBtn" onclick="closePopup()"> Close </button>
+                <button href="interfaceEmployee.html" id="GoBtn">Go </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript for showing popup of login panel -->
+    <script>
+        let popup = document.getElementById("allBox");
+        let mainContent = document.getElementById("container");
+        function openPopup() {
+            popup.classList.add("open-popup");
+            mainContent.classList.add('active');
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup");
+            mainContent.classList.remove('active');
+        }
+
+    </script>
+
+    <!-- javascript  -->
+    <script src="/js/design.js"></script>
+
+</body>
+
+</html>
