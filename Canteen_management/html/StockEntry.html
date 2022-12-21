@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <title>StockEntry_page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto slab';
+        }
+
+        #stockPage h1 {
+            margin: 1.5rem 0px 1.5rem 0px;
+            text-align: center;
+            font-size: 2.3rem;
+        }
+
+        #allStock {
+
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 2px solid black;
+        }
+
+        #stock {
+            margin: 1.5rem;
+        }
+
+        #stock table {
+            border: 2px solid red;
+            border-collapse: collapse;
+            text-align: center;
+            margin: auto;
+            width: 60%;
+        }
+
+        #stock table thead tr th {
+            font-size: 1.4rem;
+            padding: 20px 5px 20px 5px;
+            border: 2px solid grey;
+
+        }
+
+        #stock table tbody tr td {
+
+            font-size: 1.1rem;
+            padding: 10px 0px 10px 0px;
+            border: 2px solid grey;
+        }
+
+        tr {
+            overflow-y: scroll;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 3px;
+        }
+
+        input[type="date"] {
+            width: 90%;
+        }
+
+        #nameItem {
+            width: 30%;
+        }
+
+        /* for Btn s */
+        #Btns {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            margin: 10px 10% 20px auto;
+        }
+
+        #Btns #save,
+        #reset {
+            margin: 10px;
+        }
+
+        #Btns button {
+            border-radius: 5px;
+            background-color: #f3f3;
+
+            padding: 4px 30px;
+        }
+
+        #Btns button a {
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        #Btns button:hover {
+            transform: scale(1.03);
+            background: rgb(33, 238, 159);
+
+        }
+
+        #Btns button:active {
+            transform: scale(0.99);
+            background: rgb(33, 238, 159);
+
+        }
+
+        @media (max-width : 1317px) {
+            #stock table {
+                width: 100%;
+            }
+        }
+
+        @media (max-width : 751px) {
+
+
+            #stockPage h1 {
+                margin: 1.5rem 0px 1.5rem 0px;
+                text-align: center;
+                font-size: 1.6rem;
+            }
+
+            #allStock {
+
+                margin-left: 1px;
+                margin-right: 1px;
+                border: 2px solid black;
+            }
+
+            #stock {
+                overflow-x: auto;
+                margin: -2px;
+            }
+
+
+
+            .addNew button {
+                margin-bottom: 2%;
+            }
+
+
+        }
+
+        @media (max-width : 429px) {
+
+            #stock table thead tr th {
+                font-size: 1rem;
+                padding: 20px 5px 20px 5px;
+                border: 2px solid grey;
+            }
+
+            #stock table tbody tr td {
+                font-size: 0.7rem;
+                padding: 10px 0px 10px 0px;
+                border: 2px solid grey;
+            }
+
+            .addNew button {
+                border-radius: 5px;
+                background-color: #f3f3;
+                padding: 2px 12px;
+                font-size: 1.4rem;
+                margin-top: 2%;
+                margin-right: 21%;
+            }
+        }
+
+
+        .addNew{
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+        .addNew button {
+            border-radius: 5px;
+            background-color: #f3f3;
+            padding: 2px 12px;
+            font-size: 1.4rem;
+            margin-top: 2%;
+            margin-right: 21%;
+        }
+      
+        .addNew button:hover {
+            transform: scale(1.03);
+            background: rgb(33, 238, 159);
+
+        }
+
+        .addNew button:active {
+            transform: scale(0.99);
+            background: rgb(33, 238, 159);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="stockPage">
+        <h1>Welcome to Stock Entry Page : </h1>
+        <div id="allStock">
+            <div class="addList">
+                <div class="addNew">
+                    <button id="addBtn">Add-New-Item</button>
+                </div>
+            </div>
+            <div id="stock">
+                <table>
+                    <thead id="headTable">
+                        <tr class="hRow">
+                            <th class="headRow">S.<br>no</th>
+                            <th class="headRow" id="nameItem">Name-Item</th>
+                            <th class="headRow">Quantity(kg/litre)</th>
+                            <th class="headRow">Price</th>
+                            <th class="headRow">Expiry-date</th>
+                            <th class="headRow">Availabel(kg/l)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyTable">
+                        <tr class="bRow" id="bRow-1">
+                            <td class="bodyRow" id="">01</td>
+                            <td class="bodyRow">Wheat-Floor</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-1"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-1"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="expDate-1" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                        <tr class="bRow" id="bRow-2">
+                            <td class="bodyRow">02</td>
+                            <td class="bodyRow">Salt</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-2"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-2"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="expDate-2" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                        <tr class="bRow" id="bRow-3">
+                            <td class="bodyRow">03</td>
+                            <td class="bodyRow">Cooking-Oil</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-3"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-3"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="expDate-3" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                        <tr class="bRow" id="bRow-4">
+                            <td class="bodyRow">04</td>
+                            <td class="bodyRow">Turmeric-Powder</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-4"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-4"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="turmExp" id="expDate-4" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                        <tr class="bRow" id="bRow-5">
+                            <td class="bodyRow">05</td>
+                            <td class="bodyRow">Masala-Powder</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-5"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-5"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="expDate-5" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                        <tr class="bRow" id="bRow-6">
+                            <td class="bodyRow">06</td>
+                            <td class="bodyRow">Suger</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-6"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-6"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="expDate-6" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                        <tr class="bRow" id="bRow-7">
+                            <td class="bodyRow">07</td>
+                            <td class="bodyRow">Papad</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-7"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-7"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="expDate-7" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                        <tr class="bRow" id="bRow-8">
+                            <td class="bodyRow">08</td>
+                            <td class="bodyRow">Rice</td>
+                            <td class="bodyRow"><input type="number" id="inptQty-8"></td> <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="number" id="inptPrice-8"></td>
+                            <!-- let perKg is 35 then -->
+                            <td class="bodyRow"><input type="date" id="expDate-8" </td>
+                            <td class="bodyRow">10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="Btns">
+                <div id="save">
+                    <button id="saveBtn"><a href="#">Save</a></button>
+                </div>
+                <div id="reset">
+                    <button id="resetBtn"><a href="#">Reset</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

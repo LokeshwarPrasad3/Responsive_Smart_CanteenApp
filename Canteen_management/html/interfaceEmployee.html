@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Interface</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             padding: 0;
@@ -41,8 +41,8 @@
             margin: auto;
             width: 100%;
             overflow: hidden;
-          border: 3px solid rgb(120, 120, 236);
-                background-color: rgb(225, 204, 240);
+            border: 3px solid rgb(120, 120, 236);
+            background-color: rgb(225, 204, 240);
         }
 
         #nav {
@@ -158,7 +158,7 @@
 
         /* all menu btn properties is here */
         nav ul {
-             display: flex;
+            display: flex;
             position: absolute;
             list-style: none;
             right: -100px;
@@ -226,7 +226,7 @@
                 align-items: center;
                 justify-content: center;
             }
-    
+
             #header #mainHead h1 {
                 padding-top: 10px;
                 margin-left: 25px;
@@ -376,9 +376,38 @@
         #cartLogo img:active {
             transform: scale(0.99999);
         }
-        .profileContent h1{
-            text-align : center;
-            margin-top: 100px;            
+
+        .profileContent h1 {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /*   StockBottons  */
+        .operations{
+            margin : 1.2rem;
+            display : flex;
+            flex-direction :  column;
+            justify-content: center;
+            align-items: center;
+        }
+        .operations button{
+            margin : 13px;
+            padding : 3px 30px;
+            border : none;
+            background: #0982f3;
+            border-radius : 5px;
+        }
+        .operations button a {
+            font-family: 'Roboto Slab', 'Bree serif';
+            text-decoration: none;
+            font-weight: 500;
+            color : white;
+            font-size: 1.5rem;
+            cursor : pointer;
+        }
+        .operations button:hover{
+            background: blueviolet;
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -411,7 +440,7 @@
                             </label>
                             <ul>
                                 <li><a id="active" href="index.html">Home</a></li>
-                                <li><a href="addFood.html" >AddFood</a></li>
+                                <li><a href="addFood.html">AddFood</a></li>
                                 <li><a href="#">UpdateFood</a></li>
                                 <li><a href="message.html">Message</a></li>
                                 <li><a id="active" href="index.html">LogOut</a></li>
@@ -424,6 +453,14 @@
     </div>
     <div class="profileContent">
         <h1>My Another Contents</h1>
+        <div class="operations">
+            <div class="stockEntry">
+                <button><a href="StockEntry.html">Stock-Entry</a></button>
+            </div>
+            <div class="stockIssue">
+                <button><a href="StockIssue.html">Stock-Issue</a></button>
+            </div>
+        </div>
     </div>
 </body>
 

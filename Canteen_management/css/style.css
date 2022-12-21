@@ -56,6 +56,12 @@ body {
 #header #logo img {
   height: 90px;
 }
+#header img #logo {
+  height: 90px;
+}
+#header a {
+  height: 90px;
+}
 
 #searchBlock {
   margin: auto 7%;
